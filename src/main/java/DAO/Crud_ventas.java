@@ -99,8 +99,11 @@ public class Crud_ventas {
         try {
 
             preparedStmt = connection.prepareStatement(query);
+            Crud_ventas s1 = new Crud_ventas();
+            List<Venta> activos = s1.findAll();
+            
             for (int i = 0; i < t.getActivos().size(); i++) {
-                int id = 0;
+                int id = activos.size()+1;
                 preparedStmt.setInt(1, id);
                 preparedStmt.setString(2, t.getActivos().get(i).getProducto());
                 preparedStmt.setInt(3, Integer.parseInt(t.getActivos().get(i).getValor_unitario()));

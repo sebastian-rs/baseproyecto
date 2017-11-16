@@ -99,9 +99,11 @@ public class Crud_Recetas {
         try {
 
             preparedStmt = connection.prepareStatement(query);
+            Crud_Recetas s1 = new Crud_Recetas();
+            List<receta> activos = s1.findAll();
             for (int i = 0; i < t.getRecetas().size(); i++) {
 
-                int id = 0;
+                int id = activos.size()+1;
                 preparedStmt.setInt(1, id);
                 preparedStmt.setString(2, t.getRecetas().get(i).getNombre_Receta());
                 preparedStmt.setString(3, t.getRecetas().get(i).getTiempo_de_preparacion());

@@ -107,6 +107,7 @@ public class Crud_Empleados {
         try {
 
             preparedStmt = connection.prepareStatement(query);
+            
             for (int i = 0; i < t.getEmpleados().size(); i++) {
 
                 int cedula = Integer.parseInt(t.getEmpleados().get(i).getCedula());

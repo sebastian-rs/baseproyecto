@@ -105,9 +105,11 @@ public class Crud_Compras {
         try {
 
             preparedStmt = connection.prepareStatement(query);
+            Crud_Compras s1 = new Crud_Compras();
+            List<compras> activos = s1.findAll();
             for (int i = 0; i < t.getActivos().size(); i++) {
 
-                int id = 0;
+                int id = activos.size()+1;
                 preparedStmt.setInt(1, id);
                 preparedStmt.setString(2, t.getActivos().get(i).getProducto());
                 preparedStmt.setString(3, t.getActivos().get(i).getProveedor());
